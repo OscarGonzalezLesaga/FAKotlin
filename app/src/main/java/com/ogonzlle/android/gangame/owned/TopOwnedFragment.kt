@@ -1,8 +1,12 @@
 package com.ogonzlle.android.gangame.owned
 
-import android.support.v4.app.Fragment
+import com.ogonzlle.android.commons.BaseFragment
+import com.ogonzlle.android.gangame.R
 
 
-class TopOwnedFragment : Fragment() {
+class TopOwnedFragment : BaseFragment() {
+    override fun getLayoutResId(): Int {
+        return R.layout.fragment_top_owned
+    }
 
 }
