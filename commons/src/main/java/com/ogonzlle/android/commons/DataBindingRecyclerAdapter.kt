@@ -26,4 +26,5 @@ class DataBindingRecyclerAdapter<MODEL>(val itemVariableId: Int, val viewItemRes
         val item = items[position]
         holder.bindItem(item)
     }
+
 }
