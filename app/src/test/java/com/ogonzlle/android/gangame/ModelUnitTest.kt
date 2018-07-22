@@ -68,7 +68,7 @@ class ModelUnitTest {
             "\"Tower Defense\": 71" +
             "}}"
 
-    const val DEALS_RESPONSE = "[" +
+    val DEALS_RESPONSE = "[" +
             "{" +
             "\"internalName\": \"TOKITORI\"," +
             "\"title\": \"Toki Tori\"," +
@@ -150,7 +150,7 @@ class ModelUnitTest {
             "\"thumb\": \"http://cdn.akamai.steamstatic.com/steam/apps/38720/capsule_sm_120.jpg?t=1488470929\"" +
             "}]"
 
-    const val TOP_100_GAMES = "{" +
+    val TOP_100_GAMES = "{" +
             "\"10\": {" +
             "\"appid\": 10," +
             "\"name\": \"Counter-Strike\"," +
@@ -245,10 +245,19 @@ class ModelUnitTest {
         Assert.assertEquals(deal.metacriticScore, 80)
         Assert.assertEquals(deal.steamRating, 88)
         Assert.assertEquals(deal.salePrice, 0.49F)
+        Assert.assertEquals(deal.normalPrice, 4.99F)
+        Assert.assertEquals(deal.thumb, "http://cdn.akamai.steamstatic.com/steam/apps/38700/capsule_sm_120.jpg?t=1488471030")
+
     }
 
     @Test
     fun topGameParsingTest() {
+        val gson = Gson()
+        val topGame = gson.fromJson(JSON_TOP_GAME, TopGame::class.java)
+        Assert.assertEquals(topGame.title, "Counter-Strike")
+        Assert.assertEquals(topGame.steamRating, 97)
+        Assert.assertEquals(topGame.owners, 13364200)
+        Assert.assertEquals(topGame.publisher, "Valve")
 
     }
 }
