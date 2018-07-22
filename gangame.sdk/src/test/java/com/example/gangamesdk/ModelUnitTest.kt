@@ -1,6 +1,8 @@
-package com.ogonzlle.android.gangame
+package com.example.gangamesdk
 
+import com.example.gangamesdk.serializer.TopGameDeserializer
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import junit.framework.Assert
 import org.junit.Test
 
@@ -252,7 +254,8 @@ class ModelUnitTest {
 
     @Test
     fun topGameParsingTest() {
-        val gson = Gson()
+        val gson = GsonBuilder().registerTypeAdapter(TopGame::class.java, TopGameDeserializer()).create()
+
         val topGame = gson.fromJson(JSON_TOP_GAME, TopGame::class.java)
         Assert.assertEquals(topGame.title, "Counter-Strike")
         Assert.assertEquals(topGame.steamRating, 97)
