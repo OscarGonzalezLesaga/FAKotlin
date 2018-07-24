@@ -1,5 +1,6 @@
 package com.example.gangamesdk
 
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -13,5 +14,14 @@ interface RetrofitGangameApi {
 
     @GET(Routes.GET_MOST_OWNED)
     fun getMostOwnedGames(): Call<ArrayList<TopGame>>
+
+    @GET(Routes.GET_DEALS)
+    fun getDealsObservable(): Observable<ArrayList<Deal>>
+
+    @GET(Routes.GET_TOP_100_GAMES)
+    fun getTopRatedGamesObservable(): Observable<ArrayList<TopGame>>
+
+    @GET(Routes.GET_MOST_OWNED)
+    fun getMostOwnedGamesObservable(): Observable<ArrayList<TopGame>>
 
 }
